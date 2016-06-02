@@ -1,0 +1,50 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: pxc-cluster
+  labels:
+    node: pxc-cluster
+spec:
+  ports:
+    - port: 3306
+      name: mysql
+    - port: 4444
+      name: state-snapshot-transfer
+    - port: 4567
+      name: replication-traffic
+    - port: 4568
+      name: incremental-state-transfer
+  selector:
+    node: pxc-cluster
+---
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: pxc-cluster
+spec:
+  replicas: 3
+  template:
+    metadata:
+      name: pxc-cluster
+      labels:
+        node: pxc-cluster
+        app: mysql
+    spec:
+      containers:
+        - resources:
+            limits:
+              cpu: 0.3
+          name: pxc-cluster
+          image: devjatkin/percona_xtradb_cluster_5_6
+          ports:
+            - containerPort: 3306
+            - containerPort: 4444
+            - containerPort: 4567
+            - containerPort: 4568
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: "shahGhei7eing6ai"
+            - name: WSREP_SST_USER
+              value: "sstuser"
+            - name: WSREP_SST_PASSWORD
+              value: "Wo1thaitho5kieWe"
