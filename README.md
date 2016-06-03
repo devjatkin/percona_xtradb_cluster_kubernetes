@@ -19,8 +19,11 @@ https://coreos.com/kubernetes/docs/latest/configure-kubectl.html
 ### INSTALLATION
 $ docker build -t your/image . 
 or
+
 $ docker build -t gcr.io/<your-project-id>/image .
-$ gcloud docker push gcr.io/<your-project-id>/polls
+
+$ gcloud docker push gcr.io/<your-project-id>/image
+
 $ kubectl create -f pxc-cluster.yml
 
 $ kubectl cluster-info
