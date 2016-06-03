@@ -8,6 +8,7 @@ The main idea is using Kubernetes configmap during bootstrap Galera cluster.
 
 ### QUICK START
 Into project cloud.google.com console run 
+
 $ kubectl create -f pxc-cluster.yml
 
 ### REQUIREMENTS
