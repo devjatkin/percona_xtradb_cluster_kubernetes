@@ -11,6 +11,9 @@ Into project cloud.google.com console run
 
 $ kubectl create -f pxc-cluster.yml
 
+
+          $ kubectl cluster-info
+
 ### REQUIREMENTS
 Setting up kubectl.
 The following steps should be done from a local workstation to configure kubectl to work with a new cluster.
