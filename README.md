@@ -9,8 +9,8 @@ The main idea is using Kubernetes configmap during bootstrap Galera cluster.
 ### QUICK START
 Into project cloud.google.com console run 
 
-$ kubectl create -f pxc-cluster.yml
 
+          $ kubectl create -f pxc-cluster.yml
 
           $ kubectl cluster-info
 
@@ -21,14 +21,16 @@ The following steps should be done from a local workstation to configure kubectl
 https://coreos.com/kubernetes/docs/latest/configure-kubectl.html
 
 ### INSTALLATION
-$ docker build -t your/image . 
+
+          $ docker build -t your/image .
 
 or
 
-$ docker build -t gcr.io/<your-project-id>/image .
+          $ docker build -t gcr.io/<your-project-id>/image .
 
-$ gcloud docker push gcr.io/<your-project-id>/image
+          $ gcloud docker push gcr.io/<your-project-id>/image
 
-$ kubectl create -f pxc-cluster.yml
+          $ kubectl create -f pxc-cluster.yml
+          
+          $ kubectl cluster-info
 
-$ kubectl cluster-info
